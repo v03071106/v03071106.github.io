@@ -129,6 +129,11 @@
   .work.extra { display: block; }
   .more-title { font-size: 20px !important; margin: 0 0 16px !important; }
   .app-title { margin: 56px 0 8px !important; padding-top: 8px; }
+  .lab-grid .card ul.mini { margin: 0 0 4px; padding-left: 18px; font-size: 13px; color: var(--muted); }
+  .lab-grid .wide-card { grid-column: 1 / -1; }
+  .shots-land { display: flex; gap: 12px; overflow-x: auto; margin: -4px -4px 16px; padding: 4px; scroll-snap-type: x mandatory; }
+  .shots-land img { flex: 0 0 auto; width: 380px; max-width: 80%; border-radius: 10px; border: 1px solid var(--line); scroll-snap-align: start; }
+  .note-s { font-size: 12px !important; color: var(--faint) !important; margin: 0 0 10px !important; }
   .more-link { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 600; }
   .lead2 { margin-top: 12px; color: var(--text); }
   .ai-note { font-size: 14px; color: var(--muted); background: var(--code); border-radius: 10px; padding: 12px 16px; margin: -16px 0 32px; }
@@ -329,17 +334,30 @@
 
   <section id="works">
     <h2>作品</h2>
-    <p class="sub">工作上的 PHP 系統受保密約定無法公開，以下是我的個人作品：先是後端與系統，再來是搭配後端做出的 Flutter App。</p>
+    <p class="sub">工作上的 PHP 系統受保密約定無法公開，以下是我的個人作品：先是後端、系統與工具，再來是搭配後端做出的 Flutter App。</p>
     <p class="ai-note"><b>關於 AI 協作</b>這些個人作品都和 AI 協作開發：需求、架構、技術選擇與驗收由我決定，程式由 AI 協助撰寫，我負責審查、測試、除錯與部署上線。我的 PHP 與資料庫能力來自 14 年工作經驗。</p>
 
-    <article class="work extra" id="backend" data-title="後端與系統">
-      <h3 class="more-title">後端與系統</h3>
+    <article class="work extra" id="backend" data-title="後端、系統與工具">
+      <h3 class="more-title">後端、系統與工具</h3>
       <div class="lab-grid">
-        <div class="card">
+        <div class="card wide-card">
+          <div class="shots-land"><img src="images/works/picpilot-1.jpg" alt="PicPilot 儀表板" loading="lazy"><img src="images/works/picpilot-2.jpg" alt="PicPilot 匯入紀錄" loading="lazy"><img src="images/works/picpilot-3.jpg" alt="PicPilot 匯入明細" loading="lazy"><img src="images/works/picpilot-4.jpg" alt="PicPilot 整理計畫" loading="lazy"><img src="images/works/picpilot-5.jpg" alt="PicPilot 深色儀表板" loading="lazy"></div>
           <div class="eyebrow">Python × FastAPI × PostgreSQL・AI 協作 <span class="badge green">已完成・使用中</span></div>
           <h3>PicPilot NAS 照片整理</h3>
           <p>替家裡 NAS 上數百萬張照片建立索引、找重複、整理成虛擬相簿，已開發完成並實際在用。Python worker 掃描 SMB 掛載資料夾，寫進 FastAPI ＋ PostgreSQL（Alembic 管理資料庫版本），用 Docker Compose 部署在 NAS 上，前端是 Flutter。安全優先：刪除前必須完整比對 hash，搬移類操作先在沙盒資料夾試跑。</p>
+          <p class="note-s">上方為設計原型畫面，資料為示範內容；實際使用中的畫面含私人照片，不公開。</p>
           <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Alembic</span><span class="tag">Docker Compose</span><span class="tag">Flutter</span></div>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Claude Code Skill × Flutter × Python 工具 <span class="badge green">使用中</span></div>
+          <h3>Base：React 原型轉 Flutter 的 AI 開發流程</h3>
+          <p>我設計並持續維護的 AI 開發流程（目前 v3.60）：先用 React 做可互動原型，確認後交給 AI 依規範轉成 Flutter，再用工具比對版面相似度、逐項測試互動清單，最後走到 iOS TestFlight 上架準備。規則寫成 skill，讓每個專案的 AI 都照同一套標準做事。</p>
+          <ul class="mini">
+            <li>你訂 2.0：與原型版面相似度 98% 以上，462 項互動完成 460 項</li>
+            <li>居家長照：36 個路由全部轉成 Flutter，342 個互動都有測試</li>
+            <li>數位符籙、回甘也用同一套流程從原型轉成 Flutter</li>
+          </ul>
+          <div class="tags"><span class="tag">Claude Code Skills</span><span class="tag">React 原型</span><span class="tag">Flutter</span><span class="tag">版面比對</span><span class="tag">TestFlight</span></div>
         </div>
         <div class="card">
           <div class="eyebrow">Go × PostgreSQL × Docker・AI 協作 <span class="badge blue">開發中</span></div>
@@ -364,7 +382,7 @@
       </div>
     </article>
 
-    <h3 class="more-title app-title">Flutter App</h3>
+    <h3 class="more-title app-title">Flutter App（AI 協作開發）</h3>
 
     <article class="work wide" id="nidin" data-title="你訂 2.0">
       <div class="shot phones">
@@ -424,7 +442,7 @@
         <div class="eyebrow">Flutter × Python × Docker</div>
         <h3>TinTube 離線音樂播放器</h3>
         <p>從搜尋、試聽、下載到離線播放的完整 App。Flutter 前端搭配 Docker 化的 Python 服務，負責音訊解析與轉檔。</p>
-<p class="backend"><b>後端</b>Python 3.12 ＋ ffmpeg 轉檔 API，Docker Compose 部署（見上方「後端與系統」）。</p>
+<p class="backend"><b>後端</b>Python 3.12 ＋ ffmpeg 轉檔 API，Docker Compose 部署（見上方「後端、系統與工具」）。</p>
                 <ul>
           <li>Clean Architecture：Entity / Repository / UseCase 分層，Riverpod 做依賴注入與跨頁狀態</li>
           <li>iOS 背景播放、下載佇列（最多 3 個任務＋重試）、SQLite 資料同步</li>
@@ -451,7 +469,7 @@
         <div class="eyebrow">Flutter × Go × PostgreSQL <span class="badge blue">開發中</span></div>
         <h3>iYield 存股殖利率</h3>
         <p>給台股存股族的殖利率與股利追蹤 App：管理持股、估算每年可領股利、篩選高殖利率個股。前後端皆以 AI 協作完成。</p>
-<p class="backend"><b>後端</b>Go ＋ PostgreSQL 資料服務，每日排程抓公開資料，提供增量更新 API（見上方「後端與系統」）。</p>
+<p class="backend"><b>後端</b>Go ＋ PostgreSQL 資料服務，每日排程抓公開資料，提供增量更新 API（見上方「後端、系統與工具」）。</p>
                 <ul>
           <li>Go ＋ PostgreSQL 後端（AI 協作實作），每天抓證交所、櫃買中心公開資料，並回補近 5 年股利與財報</li>
           <li>App 內建市場資料、離線可用；之後依版本號只下載有變動的部分（增量更新 API）</li>
@@ -674,8 +692,8 @@
         <div class="tags"><span class="tag">Docker Compose</span><span class="tag">PHP 5.4 容器化</span><span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">GCP / AWS</span></div>
       </div>
       <div class="card">
-        <h3>跨平台與 AI 協作後端</h3>
-        <p>個人專案以 Flutter 做 App；Go、Python / FastAPI 後端以 AI 協作實作，由我負責架構設計、程式審查與 Docker 部署。</p>
+        <h3>跨平台與後端（AI 協作）</h3>
+        <p>個人專案的 Flutter App 與 Go、Python / FastAPI 後端都以 AI 協作實作，由我負責需求、架構設計、程式審查、測試與部署上架。</p>
         <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">Go</span><span class="tag">Python / FastAPI</span><span class="tag">PostgreSQL</span></div>
       </div>
       <div class="card">
@@ -767,7 +785,7 @@
     ['資料庫優化', 9],
     ['系統維運', 8],
     ['團隊管理', 8],
-    ['Flutter', 7],
+    ['Flutter（AI 協作）', 7],
     ['AI 輔助開發', 6.5],
   ], 10);
 
