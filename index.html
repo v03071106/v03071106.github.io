@@ -116,8 +116,21 @@
   .work .shot img { max-width: 100%; max-height: 380px; border-radius: 8px; display: block; }
   .work.wide { grid-template-columns: 1fr; }
   .work.wide .shot { background: #141414; }
-  .work .shot.phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; background: var(--code); }
-  .work .shot.phones img { width: 100%; max-height: none; border-radius: 14px; border: 1px solid var(--line); }
+  .work .shot.phones { display: flex; justify-content: flex-start; gap: 14px; background: var(--code); overflow-x: auto;
+                       scroll-snap-type: x mandatory; padding: 20px; scrollbar-width: thin; }
+  .work .shot.phones img { flex: 0 0 auto; width: 168px; max-width: none; max-height: none; aspect-ratio: 9 / 19.5;
+                           object-fit: cover; object-position: top; border-radius: 16px; border: 1px solid var(--line);
+                           scroll-snap-align: start; background: var(--surface); }
+  .badge.green { background: #dcfce7; color: #166534; }
+  .badge.blue { background: #dbeafe; color: #1e40af; }
+  .badge.gray { background: var(--code); color: var(--muted); }
+  :root[data-theme="dark"] .badge.green { background: #14532d; color: #86efac; }
+  :root[data-theme="dark"] .badge.blue { background: #1e3a8a; color: #93c5fd; }
+  .work.extra { display: block; }
+  .more-title { font-size: 20px !important; margin: 0 0 16px !important; }
+  .lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .lab-grid .card h3 { font-size: 18px; margin: 6px 0 8px; }
+  .lab-grid .card p { margin-bottom: 14px; }
   .badge { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 4px; font-size: 11px; letter-spacing: 0;
            background: #fef3c7; color: #92400e; vertical-align: 1px; }
   :root[data-theme="dark"] .badge { background: #451a03; color: #fcd34d; }
@@ -171,7 +184,6 @@
     .stats { grid-template-columns: repeat(2, 1fr); }
     .grid3, .skills, .work { grid-template-columns: 1fr; }
     .job { grid-template-columns: 1fr; gap: 4px; }
-    .work .shot.phones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 </style>
 </head>
@@ -305,7 +317,7 @@
 
   <section id="works">
     <h2>作品</h2>
-    <p class="sub">近年用 Flutter 做的 App，有面試作品，也有從自己生活需求出發的專案。</p>
+    <p class="sub">近年用 Flutter 做的 App：有準備上架的產品、面試作品，也有從自己生活需求出發的專案。畫面可左右滑動。</p>
 
     <article class="work wide" id="nidin" data-title="你訂 2.0">
       <div class="shot phones">
@@ -313,6 +325,8 @@
         <img src="images/nidin/09-group-hub.webp" alt="你訂 團購大廳" loading="lazy">
         <img src="images/nidin/06-checkout.webp" alt="你訂 結帳頁" loading="lazy">
         <img src="images/nidin/08-order-track.webp" alt="你訂 訂單追蹤" loading="lazy">
+        <img src="images/works/nidin-5.jpg" alt="你訂 會員卡" loading="lazy">
+        <img src="images/works/nidin-6.jpg" alt="你訂 團購地圖" loading="lazy">
       </div>
       <div>
         <div class="eyebrow">Flutter × Riverpod × Clean Architecture <span class="badge">面試作品</span></div>
@@ -330,6 +344,29 @@
           <span class="tag">Flutter 3.41</span><span class="tag">Riverpod 3</span><span class="tag">go_router</span>
           <span class="tag">ObjectBox</span><span class="tag">easy_localization</span><span class="tag">Apple Maps</span><span class="tag">AI 協作開發</span>
         </div>
+      </div>
+    </article>
+
+    <article class="work wide" id="math" data-title="算算探險隊">
+      <div class="shot phones">
+        <img src="images/works/math-1.jpg" alt="算算探險隊 首頁" loading="lazy">
+        <img src="images/works/math-2.jpg" alt="選擇世界" loading="lazy">
+        <img src="images/works/math-3.jpg" alt="勳章收藏" loading="lazy">
+        <img src="images/works/math-4.jpg" alt="直式練習" loading="lazy">
+        <img src="images/works/math-5.jpg" alt="勳章詳情" loading="lazy">
+        <img src="images/works/math-6.jpg" alt="設定" loading="lazy">
+      </div>
+      <div>
+        <div class="eyebrow">Flutter × 題庫引擎 × App 內購買 <span class="badge green">準備上架</span></div>
+        <h3>算算探險隊 兒童數學冒險 App</h3>
+        <p>繪本風的國小四則運算闖關 App：孩子在 20 個主題世界裡練直式加減乘除，一邊收集勳章。已備妥 App Store 截圖、上架文案與內購設定，準備送審販售。</p>
+        <ul>
+          <li>確定性題目引擎產生 24,000 題（20 個世界 × 四則運算 × 30 關 × 10 題），全部答案與直式步驟都經過自動驗證</li>
+          <li>題目引擎從 JavaScript 移植成純 Dart，用 golden 測試確認兩邊結果完全一致</li>
+          <li>直式計算可逐格輸入，進位、部分積、商與餘數即時檢查；首頁文字附注音</li>
+          <li>付費關卡與購買按鈕放在家長驗證（PIN 或算式題）後面，符合兒童類 App 規範</li>
+        </ul>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">go_router</span><span class="tag">ObjectBox</span><span class="tag">audioplayers</span><span class="tag">In-App Purchase</span></div>
       </div>
     </article>
 
@@ -352,10 +389,126 @@
       </div>
     </article>
 
-    <article class="work" id="mp3player" data-title="小孩 MP3 播放器">
-      <div class="shot"><img src="images/mp3player.jpg" alt="小孩 MP3 播放器主畫面" loading="lazy"></div>
+    <article class="work wide" id="iyield" data-title="iYield 存股殖利率">
+      <div class="shot phones">
+        <img src="images/works/iyield-1.jpg" alt="iYield 首頁" loading="lazy">
+        <img src="images/works/iyield-2.jpg" alt="我的存股" loading="lazy">
+        <img src="images/works/iyield-3.jpg" alt="股利行事曆" loading="lazy">
+        <img src="images/works/iyield-4.jpg" alt="存股篩選" loading="lazy">
+        <img src="images/works/iyield-5.jpg" alt="個股詳情" loading="lazy">
+        <img src="images/works/iyield-6.jpg" alt="個股比較" loading="lazy">
+      </div>
       <div>
-        <div class="eyebrow">Flutter × NAS × PHP</div>
+        <div class="eyebrow">Flutter × Go × PostgreSQL <span class="badge blue">開發中</span></div>
+        <h3>iYield 存股殖利率</h3>
+        <p>給台股存股族的殖利率與股利追蹤 App：管理持股、估算每年可領股利、篩選高殖利率個股。前後端都自己寫。</p>
+        <ul>
+          <li>自寫 Go ＋ PostgreSQL 後端，每天抓證交所、櫃買中心公開資料，並回補近 5 年股利與財報</li>
+          <li>App 內建市場資料、離線可用；之後依版本號只下載有變動的部分（增量更新 API）</li>
+          <li>處理減資、分割等換算；篩選器、買賣規則訊號、股利日曆、個股比較、試算</li>
+        </ul>
+        <p class="note">資料來源為證交所、櫃買中心公開資料；畫面中個股為示範資料，不構成投資建議。</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">ObjectBox</span><span class="tag">Go</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+      </div>
+    </article>
+
+    <article class="work wide" id="sprou" data-title="成長時光">
+      <div class="shot phones">
+        <img src="images/works/sprou-1.jpg" alt="成長時光 首頁" loading="lazy">
+        <img src="images/works/sprou-2.jpg" alt="時光軸" loading="lazy">
+        <img src="images/works/sprou-3.jpg" alt="成長紀錄" loading="lazy">
+        <img src="images/works/sprou-4.jpg" alt="所有紀錄" loading="lazy">
+        <img src="images/works/sprou-5.jpg" alt="寶寶支出" loading="lazy">
+        <img src="images/works/sprou-6.jpg" alt="影片編輯" loading="lazy">
+      </div>
+      <div>
+        <div class="eyebrow">Flutter × Local-first × Google Drive <span class="badge blue">開發中</span></div>
+        <h3>成長時光 Sprou Time</h3>
+        <p>給家長的寶寶成長紀錄 App：日記、照片影片、身高體重曲線、里程碑與開銷，並可和家人同步。</p>
+        <ul>
+          <li>資料先存在手機（local-first），Google Drive 只做選用的家庭同步與備份，只要求最小的 drive.file 權限</li>
+          <li>照片影片用 SHA-256 去重後統一管理；同步支援版本號與刪除標記，避免家人之間互相覆蓋</li>
+          <li>時光軸、成長曲線、開銷、影片編輯；4 種主題色並支援深色模式</li>
+        </ul>
+        <p class="note">畫面中的寶寶與紀錄皆為插畫示範資料。</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">ObjectBox</span><span class="tag">Google Drive API</span><span class="tag">go_router</span></div>
+      </div>
+    </article>
+
+    <article class="work wide" id="istash" data-title="iStash">
+      <div class="shot phones">
+        <img src="images/works/istash-1.jpg" alt="iStash 首頁（淺色）" loading="lazy">
+        <img src="images/works/istash-2.jpg" alt="iStash 首頁（深色）" loading="lazy">
+        <img src="images/works/istash-3.jpg" alt="圖示管理" loading="lazy">
+        <img src="images/works/istash-4.jpg" alt="家庭共享設定" loading="lazy">
+      </div>
+      <div>
+        <div class="eyebrow">Flutter × CloudKit × Swift <span class="badge green">準備上架</span></div>
+        <h3>iStash 家庭庫存管理</h3>
+        <p>居家物品管理 App：記錄物品放在哪、何時到期、何時要補貨，家人可以一起維護。</p>
+        <ul>
+          <li>三層位置樹、到期提醒、低庫存本地通知、歷史價格圖表與統計</li>
+          <li>透過 Swift MethodChannel 串接 CloudKit Sharing，不架後端就能家庭共享，並附同步診斷頁</li>
+          <li>內建 241 枚原創圖示；介面支援四種語言；已通過 iOS 封存打包檢查</li>
+        </ul>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">ObjectBox</span><span class="tag">CloudKit</span><span class="tag">Swift</span><span class="tag">Local Notifications</span></div>
+      </div>
+    </article>
+
+    <article class="work wide" id="ivemo" data-title="iVemo 電視遙控器">
+      <div class="shot phones">
+        <img src="images/works/ivemo-1.jpg" alt="遙控器主畫面" loading="lazy">
+        <img src="images/works/ivemo-2.jpg" alt="選擇電視" loading="lazy">
+        <img src="images/works/ivemo-3.jpg" alt="定時關機" loading="lazy">
+        <img src="images/works/ivemo-4.jpg" alt="App 捷徑" loading="lazy">
+        <img src="images/works/ivemo-5.jpg" alt="遙控器（深色）" loading="lazy">
+        <img src="images/works/ivemo-6.jpg" alt="電視控制" loading="lazy">
+      </div>
+      <div>
+        <div class="eyebrow">Flutter × WebSocket × 區網探索 <span class="badge green">送審中</span></div>
+        <h3>iVemo 智慧電視遙控器</h3>
+        <p>在同一個 Wi-Fi 下，用手機遙控 Samsung、LG 智慧電視。</p>
+        <ul>
+          <li>用 SSDP 與 Bonjour 自動搜尋電視，支援 Wake-on-LAN 開機與記住上次連線</li>
+          <li>Samsung 走 WebSocket 配對、LG 走 webOS 協定並釘選 TLS 憑證；配對憑證存在 Secure Storage</li>
+          <li>擬物風介面、定時關機倒數、App 捷徑管理</li>
+        </ul>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">WebSocket</span><span class="tag">SSDP / mDNS</span><span class="tag">Secure Storage</span></div>
+      </div>
+    </article>
+
+    <article class="work wide" id="stellare" data-title="Stellare Wallet">
+      <div class="shot phones">
+        <img src="images/works/restellara-1.jpg" alt="錢包首頁" loading="lazy">
+        <img src="images/works/restellara-2.jpg" alt="市場行情" loading="lazy">
+        <img src="images/works/restellara-3.jpg" alt="資產組合" loading="lazy">
+        <img src="images/works/restellara-4.jpg" alt="路徑支付" loading="lazy">
+        <img src="images/works/restellara-5.jpg" alt="交易紀錄" loading="lazy">
+        <img src="images/works/restellara-6.jpg" alt="收款" loading="lazy">
+      </div>
+      <div>
+        <div class="eyebrow">Flutter × Stellar 區塊鏈 × NFC <span class="badge blue">開發中</span></div>
+        <h3>Stellare Wallet 冷錢包（v1 → v2）</h3>
+        <p>Stellar 區塊鏈錢包，v2（ReStellara）改成冷錢包架構：私鑰可加密存在 NFC 卡片，付款時讀卡簽章。</p>
+        <ul>
+          <li>私鑰加密存在 Keychain，搭配 PIN、生物辨識、自動鎖定與防截圖；PIN 以 PBKDF2 雜湊、NFC 載荷用 AES-GCM 加密</li>
+          <li>付款、DEX 掛單、K 線、路徑支付（path payment）；多錢包與四語系</li>
+          <li>端對端整合測試在測試網上實際完成付款並確認入帳，也驗證錯誤 PIN 不會送出交易</li>
+        </ul>
+        <p class="note">畫面皆為測試網（Testnet）資料。</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">Stellar SDK</span><span class="tag">NFC</span><span class="tag">ObjectBox</span><span class="tag">fl_chart</span></div>
+      </div>
+    </article>
+
+    <article class="work wide" id="mp3player" data-title="小孩 MP3 播放器">
+      <div class="shot phones">
+        <img src="images/works/mp3-1.jpg" alt="播放器（淺色）" loading="lazy">
+        <img src="images/works/mp3-2.jpg" alt="播放器（深色）" loading="lazy">
+        <img src="images/works/mp3-3.jpg" alt="播放清單" loading="lazy">
+        <img src="images/works/mp3-4.jpg" alt="跨清單搜尋" loading="lazy">
+      </div>
+      <div>
+        <div class="eyebrow">Flutter × NAS × PHP <span class="badge gray">自用</span></div>
         <h3>小孩 MP3 播放器</h3>
         <p>源自家裡的需求：讓孩子在車上或房間聽喜歡的音樂和有聲書。家長在 NAS 整理內容，App 同步到手機播放。</p>
         <ul>
@@ -363,26 +516,70 @@
           <li>audio_service 整合系統媒體控制與背景播放</li>
           <li>分類、跨清單搜尋、我的最愛、深淺色主題</li>
         </ul>
-        <div class="tags">
-          <span class="tag">Flutter</span><span class="tag">audio_service</span><span class="tag">Dio</span><span class="tag">PHP API</span>
-        </div>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">audio_service</span><span class="tag">Dio</span><span class="tag">PHP API</span></div>
       </div>
     </article>
 
-    <article class="work" id="stellare" data-title="Stellare Wallet">
-      <div class="shot"><img src="images/stellare.jpg" alt="Stellare Wallet 錢包畫面（展示資料）" loading="lazy"></div>
+    <article class="work wide" id="homecare" data-title="居家長照 App">
+      <div class="shot phones">
+        <img src="images/works/homecare-1.jpg" alt="今日訪視" loading="lazy">
+        <img src="images/works/homecare-2.jpg" alt="病人清單" loading="lazy">
+        <img src="images/works/homecare-3.jpg" alt="看診前量測" loading="lazy">
+        <img src="images/works/homecare-4.jpg" alt="班表" loading="lazy">
+        <img src="images/works/homecare-5.jpg" alt="傷口紀錄" loading="lazy">
+        <img src="images/works/homecare-6.jpg" alt="視訊看診" loading="lazy">
+      </div>
       <div>
-        <div class="eyebrow">Flutter × Stellar 區塊鏈</div>
-        <h3>Stellare Wallet</h3>
-        <p>Stellar 生態的跨平台錢包，把資產、交易與安全流程整合成清楚可操作的行動體驗。（畫面為展示資料）</p>
+        <div class="eyebrow">Flutter × FHIR R4 <span class="badge gray">原型</span></div>
+        <h3>居家醫療與長照服務 App</h3>
+        <p>給居家護理與長照人員的訪視工作 App：今日行程、個案、生命徵象、傷口紀錄、視訊看診。</p>
         <ul>
-          <li>多錢包切換；建立、助記詞還原、NFC 匯入、唯讀地址四種接入方式</li>
-          <li>PIN 以 PBKDF2-HMAC-SHA256 雜湊存於 Secure Storage；NFC 載荷用 AES-GCM 加密並相容舊格式</li>
-          <li>ObjectBox 本地資料＋排程同步；英 / 繁中 / 日 / 韓四語系</li>
+          <li>React 原型的 36 個路由全部轉成 Flutter，342 個互動都有對應測試</li>
+          <li>依台灣長照與 TW Core 規格設計 FHIR R4 本機資料層</li>
+          <li>離線排隊同步；生命徵象、傷口、ADL 量表、透析等訪視流程</li>
         </ul>
-        <div class="tags">
-          <span class="tag">Flutter</span><span class="tag">Stellar SDK</span><span class="tag">ObjectBox</span>
-          <span class="tag">Riverpod</span><span class="tag">NFC</span>
+        <p class="note">畫面為設計原型截圖，個案、醫師與病況皆為虛構示範資料。</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">FHIR R4</span><span class="tag">ObjectBox</span><span class="tag">go_router</span></div>
+      </div>
+    </article>
+
+    <article class="work wide" id="huigan" data-title="回甘">
+      <div class="shot phones">
+        <img src="images/works/huigan-1.jpg" alt="今日" loading="lazy">
+        <img src="images/works/huigan-2.jpg" alt="紫微斗數" loading="lazy">
+        <img src="images/works/huigan-3.jpg" alt="八字大運" loading="lazy">
+        <img src="images/works/huigan-4.jpg" alt="易經卦象" loading="lazy">
+        <img src="images/works/huigan-5.jpg" alt="流年" loading="lazy">
+        <img src="images/works/huigan-6.jpg" alt="吉方位" loading="lazy">
+      </div>
+      <div>
+        <div class="eyebrow">Flutter × 農曆演算法 <span class="badge gray">原型</span></div>
+        <h3>回甘</h3>
+        <p>給正在低潮、找工作的人的轉運 App：結合紫微、八字、易經，最後一定落到「今天做一件小事」的具體行動。</p>
+        <ul>
+          <li>國曆、農曆（含閏月）換算與 React 原型同一套演算法，結果逐筆一致</li>
+          <li>紫微斗數、八字大運、流年流月、易經卜卦、今日吉方位</li>
+          <li>把建議接到實際行動，例如聯絡前同事、改履歷，並提供支持資源</li>
+        </ul>
+        <p class="note">畫面為設計原型截圖。</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">lunar</span><span class="tag">ObjectBox</span><span class="tag">go_router</span></div>
+      </div>
+    </article>
+
+    <article class="work extra" id="lab" data-title="其他實驗">
+      <h3 class="more-title">其他實驗</h3>
+      <div class="lab-grid">
+        <div class="card">
+          <div class="eyebrow">Flutter × Python × FastAPI <span class="badge blue">開發中</span></div>
+          <h3>PicPilot NAS 照片整理</h3>
+          <p>替 NAS 上數百萬張照片建立索引、找重複、規劃整理。Python worker 掃描 SMB 掛載資料夾，寫進 FastAPI ＋ PostgreSQL，用 Docker Compose 部署到 NAS。安全優先：第一階段只讀，刪除前必須完整比對 hash。</p>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Alembic</span><span class="tag">Docker</span></div>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Local LLM × Flutter <span class="badge gray">實驗</span></div>
+          <h3>本機模型產生 Flutter 頁面</h3>
+          <p>測試本機 Qwen 27B（MLX）能不能照團隊的元件規範寫出可用的 Flutter 頁面。首稿 12 個編譯錯誤，修三輪後通過完整 analyze、規範檢查與 4 個 widget 測試，也記錄了檢查工具抓不到的問題。</p>
+          <div class="tags"><span class="tag">Qwen</span><span class="tag">MLX</span><span class="tag">Flutter</span><span class="tag">Static Analysis</span></div>
         </div>
       </div>
     </article>
