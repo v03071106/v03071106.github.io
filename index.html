@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vam｜後端工程師・能獨立做出完整 App</title>
-<meta name="description" content="Vam，14 年以上 PHP 後端開發經驗，專長金流與 API 整合、資料庫優化、系統維運；能用 Flutter 與自建後端獨立做出完整 App。">
+<title>Vam｜後端工程師・與 AI 協作做出完整 App</title>
+<meta name="description" content="Vam，14 年以上 PHP 後端開發經驗，專長金流與 API 整合、資料庫優化、系統維運；並與 AI 協作，用 Flutter 搭配後端服務做出完整 App。">
 <link rel="icon" type="image/png" href="images/avatar.png">
 <link rel="apple-touch-icon" href="images/avatar.png">
 <script>
@@ -131,6 +131,8 @@
   .app-title { margin: 56px 0 8px !important; padding-top: 8px; }
   .more-link { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 600; }
   .lead2 { margin-top: 12px; color: var(--text); }
+  .ai-note { font-size: 14px; color: var(--muted); background: var(--code); border-radius: 10px; padding: 12px 16px; margin: -16px 0 32px; }
+  .ai-note b { color: var(--text); margin-right: 8px; }
   .work .backend { font-size: 14px; color: var(--text); background: var(--code); border-radius: 8px; padding: 10px 14px; }
   .work .backend b { display: inline-block; margin-right: 8px; padding: 0 8px; border-radius: 4px; font-size: 12px;
                      background: var(--accent); color: var(--bg); }
@@ -198,7 +200,7 @@
 
 <aside class="side">
   <a class="brand" href="#about"><img class="logo" src="images/avatar.png" alt="">Vam</a>
-  <p class="tagline">後端工程師<br>能獨立做出完整 App</p>
+  <p class="tagline">後端工程師<br>與 AI 協作做出完整 App</p>
   <nav aria-label="段落">
     <ul>
       <li><a href="#about"><span class="n">01</span>關於我</a></li>
@@ -232,7 +234,7 @@
       熟悉從需求分析、資料流程、API 整合、部署到正式環境問題排查。
     </p>
     <p class="lead lead2">
-      工作之外，我用 Flutter 搭配自己架的後端服務（Go、Python、PHP），一個人從資料庫、API 做到 App 上架。
+      工作之外，我和 AI 協作，用 Flutter 搭配後端服務（Go、Python、PHP）做出能上架、能實際使用的 App。我負責需求、架構與技術決策，AI 協助撰寫程式，再由我審查、測試與部署。
     </p>
     <div class="meta">
       <span>📍 台中市</span>
@@ -328,25 +330,26 @@
   <section id="works">
     <h2>作品</h2>
     <p class="sub">工作上的 PHP 系統受保密約定無法公開，以下是我的個人作品：先是後端與系統，再來是搭配後端做出的 Flutter App。</p>
+    <p class="ai-note"><b>關於 AI 協作</b>這些個人作品都和 AI 協作開發：需求、架構、技術選擇與驗收由我決定，程式由 AI 協助撰寫，我負責審查、測試、除錯與部署上線。我的 PHP 與資料庫能力來自 14 年工作經驗。</p>
 
     <article class="work extra" id="backend" data-title="後端與系統">
       <h3 class="more-title">後端與系統</h3>
       <div class="lab-grid">
         <div class="card">
-          <div class="eyebrow">Python × FastAPI × PostgreSQL <span class="badge green">已完成・使用中</span></div>
+          <div class="eyebrow">Python × FastAPI × PostgreSQL・AI 協作 <span class="badge green">已完成・使用中</span></div>
           <h3>PicPilot NAS 照片整理</h3>
           <p>替家裡 NAS 上數百萬張照片建立索引、找重複、整理成虛擬相簿，已開發完成並實際在用。Python worker 掃描 SMB 掛載資料夾，寫進 FastAPI ＋ PostgreSQL（Alembic 管理資料庫版本），用 Docker Compose 部署在 NAS 上，前端是 Flutter。安全優先：刪除前必須完整比對 hash，搬移類操作先在沙盒資料夾試跑。</p>
           <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Alembic</span><span class="tag">Docker Compose</span><span class="tag">Flutter</span></div>
         </div>
         <div class="card">
-          <div class="eyebrow">Go × PostgreSQL × Docker <span class="badge blue">開發中</span></div>
+          <div class="eyebrow">Go × PostgreSQL × Docker・AI 協作 <span class="badge blue">開發中</span></div>
           <h3>iYield 股市資料服務</h3>
           <p>iYield App 背後的資料服務。每天排程抓證交所、櫃買中心公開資料，回補近 5 年股利與財報，並處理減資、分割等換算。App 依資料版本號呼叫增量更新 API，只下載有變動的部分，離線也能用。</p>
           <div class="tags"><span class="tag">Go</span><span class="tag">PostgreSQL</span><span class="tag">排程</span><span class="tag">增量同步 API</span><span class="tag">Docker</span></div>
           <a class="more-link" href="#iyield">看 App 畫面 →</a>
         </div>
         <div class="card">
-          <div class="eyebrow">Python × ffmpeg × Docker <span class="badge gray">自用</span></div>
+          <div class="eyebrow">Python × ffmpeg × Docker・AI 協作 <span class="badge gray">自用</span></div>
           <h3>TinTube 音訊轉檔服務</h3>
           <p>TinTube App 的下載核心。Python 3.12 HTTP 服務負責來源解析、用 ffmpeg 轉成 m4a 並回傳檔案，另提供試聽用的短期串流網址；以 Docker Compose 部署、自動重啟。</p>
           <div class="tags"><span class="tag">Python 3.12</span><span class="tag">ffmpeg</span><span class="tag">REST API</span><span class="tag">Docker Compose</span></div>
@@ -447,10 +450,10 @@
       <div>
         <div class="eyebrow">Flutter × Go × PostgreSQL <span class="badge blue">開發中</span></div>
         <h3>iYield 存股殖利率</h3>
-        <p>給台股存股族的殖利率與股利追蹤 App：管理持股、估算每年可領股利、篩選高殖利率個股。前後端都自己寫。</p>
+        <p>給台股存股族的殖利率與股利追蹤 App：管理持股、估算每年可領股利、篩選高殖利率個股。前後端皆以 AI 協作完成。</p>
 <p class="backend"><b>後端</b>Go ＋ PostgreSQL 資料服務，每日排程抓公開資料，提供增量更新 API（見上方「後端與系統」）。</p>
                 <ul>
-          <li>自寫 Go ＋ PostgreSQL 後端，每天抓證交所、櫃買中心公開資料，並回補近 5 年股利與財報</li>
+          <li>Go ＋ PostgreSQL 後端（AI 協作實作），每天抓證交所、櫃買中心公開資料，並回補近 5 年股利與財報</li>
           <li>App 內建市場資料、離線可用；之後依版本號只下載有變動的部分（增量更新 API）</li>
           <li>處理減資、分割等換算；篩選器、買賣規則訊號、股利日曆、個股比較、試算</li>
         </ul>
@@ -562,7 +565,7 @@
         <div class="eyebrow">Flutter × NAS × PHP <span class="badge gray">自用</span></div>
         <h3>小孩 MP3 播放器</h3>
         <p>源自家裡的需求：讓孩子在車上或房間聽喜歡的音樂和有聲書。家長在 NAS 整理內容，App 同步到手機播放。</p>
-<p class="backend"><b>後端</b>NAS 上自寫的 PHP API，提供播放清單 JSON 與音檔、封面下載。</p>
+<p class="backend"><b>後端</b>NAS 上的 PHP API，提供播放清單 JSON 與音檔、封面下載。</p>
                 <ul>
           <li>NAS 上的 PHP 提供播放清單 JSON，App 用 Dio 下載後本地播放</li>
           <li>audio_service 整合系統媒體控制與背景播放</li>
@@ -648,7 +651,7 @@
 
   <section id="skills">
     <h2>技能</h2>
-    <p class="sub">主力在後端；做 App 時自己架後端服務，並用 AI 加速開發。</p>
+    <p class="sub">主力在 PHP 後端；個人專案用 AI 協作，延伸到 Flutter、Go、Python。</p>
     <div class="skills">
       <div class="card">
         <h3>核心後端</h3>
@@ -671,8 +674,8 @@
         <div class="tags"><span class="tag">Docker Compose</span><span class="tag">PHP 5.4 容器化</span><span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">GCP / AWS</span></div>
       </div>
       <div class="card">
-        <h3>跨平台與自建服務</h3>
-        <p>用 Flutter 做 App，後端依需求自己架：Go、Python / FastAPI、PHP，搭配 PostgreSQL 與 Docker 部署。</p>
+        <h3>跨平台與 AI 協作後端</h3>
+        <p>個人專案以 Flutter 做 App；Go、Python / FastAPI 後端以 AI 協作實作，由我負責架構設計、程式審查與 Docker 部署。</p>
         <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">Go</span><span class="tag">Python / FastAPI</span><span class="tag">PostgreSQL</span></div>
       </div>
       <div class="card">
