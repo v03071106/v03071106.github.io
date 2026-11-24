@@ -611,7 +611,7 @@
         <p>Stellar 區塊鏈錢包，v2（ReStellara）改成冷錢包架構：私鑰可加密存在 NFC 卡片，付款時讀卡簽章。</p>
 <p class="backend"><b>鏈上</b>串接 Stellar Horizon API，處理交易組裝、簽章與送出，測試網端對端驗證入帳。</p>
                 <ul>
-          <li>私鑰加密存在 Keychain，搭配 PIN、生物辨識、自動鎖定與防截圖；PIN 以 PBKDF2 雜湊、NFC 載荷用 AES-GCM 加密</li>
+          <li>私鑰加密保存，搭配 PIN、生物辨識與自動鎖定保護</li>
           <li>付款、DEX 掛單、K 線、路徑支付（path payment）；多錢包與四語系</li>
           <li>端對端整合測試在測試網上實際完成付款並確認入帳，也驗證錯誤 PIN 不會送出交易</li>
         </ul>
