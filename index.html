@@ -150,7 +150,8 @@
 
   .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .skills .card h3 { font-size: 15px; color: var(--accent); }
-  .skills .tags { margin-top: 10px; }
+  .skills .tags { margin-top: 12px; }
+  .skills .card p { font-size: 14px; line-height: 1.7; }
   .skills .tag { background: var(--code); }
 
   .radars { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
@@ -284,8 +285,8 @@
       </div>
       <div class="card">
         <div class="num">03</div>
-        <h3>Legacy PHP 環境 Docker 化</h3>
-        <p>主導整合 PHP、Apache、MariaDB Master/Slave、Redis、Swagger、Crontab 的開發環境，供 15 位以上工程師使用，大幅降低新人建置成本。</p>
+        <h3>PHP 5.4 舊系統 Docker 化</h3>
+        <p>用 Docker Compose 主導整合 PHP 5.4、Apache、MariaDB Master/Slave、Redis、Swagger、Crontab 的開發環境，供 15 位以上工程師使用，大幅降低新人建置成本。</p>
       </div>
     </div>
   </section>
@@ -623,31 +624,37 @@
 
   <section id="skills">
     <h2>技能</h2>
-    <p class="sub">主力在後端，持續往跨平台與 AI 應用延伸。</p>
+    <p class="sub">主力在後端；做 App 時自己架後端服務，並用 AI 加速開發。</p>
     <div class="skills">
       <div class="card">
         <h3>核心後端</h3>
-        <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">CodeIgniter</span><span class="tag">RESTful API</span><span class="tag">Composer</span></div>
+        <p>熟悉 Laravel 分層架構：Middleware、Form Request、Service / Repository、Model。用 AI 協作加速開發，並以多年實務經驗審查產出。</p>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">CodeIgniter</span><span class="tag">自研 MVC Framework</span><span class="tag">Composer</span></div>
+      </div>
+      <div class="card">
+        <h3>API 設計與串接</h3>
+        <p>RESTful API 設計與串接，串過 30 家以上金流與多家遊戲廠商 API；以 Swagger / OpenAPI 撰寫並維護 API 文件。</p>
+        <div class="tags"><span class="tag">RESTful API</span><span class="tag">Swagger / OpenAPI</span><span class="tag">Callback 驗簽</span><span class="tag">重複請求與冪等</span><span class="tag">逾時與補單</span></div>
       </div>
       <div class="card">
         <h3>資料庫</h3>
-        <div class="tags"><span class="tag">MySQL</span><span class="tag">MariaDB</span><span class="tag">Redis</span><span class="tag">SQL 優化</span><span class="tag">MongoDB</span></div>
+        <p>熟悉原生 SQL 與查詢優化：Index、Partition、Transaction、Deadlock 排查。Migration / Seeder 與 Eloquent 基本使用。</p>
+        <div class="tags"><span class="tag">MySQL</span><span class="tag">MariaDB</span><span class="tag">Redis</span><span class="tag">原生 SQL</span><span class="tag">SQL 優化</span><span class="tag">Migration / Seeder</span></div>
       </div>
       <div class="card">
         <h3>DevOps / 正式環境</h3>
-        <div class="tags"><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">GCP / AWS</span><span class="tag">問題排查</span></div>
+        <p>用 Docker Compose 把 PHP 5.4 舊系統建成一鍵可用的開發環境；Linux 部署、日誌分析與正式環境分層排錯。</p>
+        <div class="tags"><span class="tag">Docker Compose</span><span class="tag">PHP 5.4 容器化</span><span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">GCP / AWS</span></div>
       </div>
       <div class="card">
-        <h3>系統整合</h3>
-        <div class="tags"><span class="tag">第三方支付</span><span class="tag">遊戲 API</span><span class="tag">Legacy 系統維護</span></div>
-      </div>
-      <div class="card">
-        <h3>跨平台</h3>
-        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">WebSocket</span><span class="tag">iOS / Android / Web</span></div>
+        <h3>跨平台與自建服務</h3>
+        <p>用 Flutter 做 App，後端依需求自己架：Go、Python / FastAPI、PHP，搭配 PostgreSQL 與 Docker 部署。</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">Go</span><span class="tag">Python / FastAPI</span><span class="tag">PostgreSQL</span></div>
       </div>
       <div class="card">
         <h3>AI 輔助開發</h3>
-        <div class="tags"><span class="tag">ChatGPT / Codex / Claude</span><span class="tag">RAG・MCP POC</span><span class="tag">Ollama</span><span class="tag">Qdrant / Chroma</span></div>
+        <p>用 AI 協作做需求分析、開發、重構與除錯，再以後端與正式環境經驗驗證；做過 RAG、MCP 的技術驗證。</p>
+        <div class="tags"><span class="tag">Claude / ChatGPT / Codex</span><span class="tag">RAG・MCP POC</span><span class="tag">Ollama</span><span class="tag">Qdrant / Chroma</span></div>
       </div>
     </div>
   </section>
