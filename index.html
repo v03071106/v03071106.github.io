@@ -345,7 +345,7 @@
         <div class="card">
           <div class="eyebrow">Claude Code Skill × Flutter × Python 工具 <span class="badge green">使用中</span></div>
           <h3>Base：React 原型轉 Flutter 的 AI 開發流程</h3>
-          <p>我設計並持續維護的 AI 開發流程（目前 v3.60）：先用 React 做可互動原型，確認後交給 AI 依規範轉成 Flutter，再用工具比對版面相似度、逐項測試互動清單，最後走到 iOS TestFlight 上架準備。規則寫成 skill，讓每個專案的 AI 都照同一套標準做事。</p>
+          <p>我設計並持續維護的 AI 開發流程（目前 v3.60）：從互動原型、Flutter 實作、測試到上架準備，整套流程寫成規範，讓每個專案的 AI 都照同一套標準做事。</p>
           <ul class="mini">
             <li>你訂 2.0：與原型版面相似度 98% 以上，462 項互動完成 460 項</li>
             <li>居家長照：36 個路由全部轉成 Flutter，342 個互動都有測試</li>
@@ -393,9 +393,9 @@
         <p>覺得 QNAP 內建的照片 App 不好用，所以自己做一套：手機上的 Flutter App 加上跑在 NAS 上的後端，替家裡數百萬張照片建立索引、找重複、整理成虛擬相簿，已開發完成並每天在用。</p>
         <p class="backend"><b>後端</b>Python worker 掃描 SMB 掛載資料夾，寫進 FastAPI ＋ PostgreSQL（Alembic 管理資料庫版本），用 Docker Compose 部署在 NAS 上。</p>
         <ul>
-          <li>智慧匯入：photo_manager 讀取手機相簿，比對 NAS 後只上傳缺少的照片，上傳後可交給系統確認刪除手機原檔</li>
-          <li>重複群組、照片搜尋（年份、GPS、拍攝日期等條件）與整理計畫，數百萬張照片也能快速篩選</li>
-          <li>安全優先：App 不直接刪除檔案，所有操作先產生計畫並 dry-run，確認後才執行；刪除前必須完整比對 hash</li>
+          <li>智慧匯入：手機照片只上傳 NAS 還沒有的，備份完可釋放手機空間</li>
+          <li>重複照片整理、多條件搜尋，數百萬張照片也能快速篩選</li>
+          <li>安全優先：所有整理與刪除都要先確認，避免誤刪</li>
         </ul>
         <p class="note">備註：上方為手機版設計原型畫面，資料為示範內容；實際使用中的畫面含私人照片，不公開。</p>
         <div class="tags">
@@ -418,10 +418,10 @@
         <div class="eyebrow">Flutter × Riverpod × iOS 小工具 <span class="badge gray">自用</span></div>
         <h3>API Debugger 手機 API 除錯工具</h3>
         <p>串接第三方 API 時用的手機版除錯工具：依廠商與環境管理 API 範本，組好請求就能送出，看回應、查歷史紀錄。把我在金流與廠商串接上最常做的事，做成隨身帶著的 App。</p>
-<p class="backend"><b>串接</b>自動計算 SignKey 簽章、擷取 Session Token、每次請求帶上 X-Request-ID，可對照伺服器 Apache Log 追查同一筆請求。</p>
+<p class="backend"><b>串接</b>自動處理簽章與登入 Token，並能和伺服器紀錄對照追查請求。</p>
         <ul>
-          <li>廠商 → API 範本 → 請求 → 回應的完整流程，可從 cURL、Postman Collection 匯入，並產生 PHP、Python、JavaScript 等請求範例</li>
-          <li>機密集中放在加密 Vault（Keychain / App Lock），不進小工具與匯出資料</li>
+          <li>依廠商與環境管理 API，支援 cURL、Postman 匯入</li>
+          <li>機密資料加密保存，搭配 App 鎖定</li>
           <li>iOS 桌面小工具顯示釘選 API 的上次檢測結果，可當成服務健康狀態看板</li>
         </ul>
         <p class="note">備註：畫面為 iPhone 模擬器實際操作截圖，連線對象為本機 Docker 測試服務與公開示範 API。</p>
@@ -473,12 +473,11 @@
         <div class="eyebrow">Flutter × 題庫引擎 × App 內購買 <span class="badge green">準備上架</span></div>
         <h3>算算探險隊 兒童數學冒險 App</h3>
         <p>繪本風的國小四則運算闖關 App：孩子在 20 個主題世界裡練直式加減乘除，一邊收集勳章。已備妥 App Store 截圖、上架文案與內購設定，準備送審販售。</p>
-<p class="backend"><b>題目引擎</b>確定性產生 24,000 題，JavaScript 與 Dart 兩套實作用 golden 測試逐題對齊；不需伺服器、離線可玩。</p>
+<p class="backend"><b>題庫</b>內建 24,000 題，不需伺服器、離線可玩。</p>
                 <ul>
-          <li>確定性題目引擎產生 24,000 題（20 個世界 × 四則運算 × 30 關 × 10 題），全部答案與直式步驟都經過自動驗證</li>
-          <li>題目引擎從 JavaScript 移植成純 Dart，用 golden 測試確認兩邊結果完全一致</li>
-          <li>直式計算可逐格輸入，進位、部分積、商與餘數即時檢查；首頁文字附注音</li>
-          <li>付費關卡與購買按鈕放在家長驗證（PIN 或算式題）後面，符合兒童類 App 規範</li>
+          <li>全部題目答案與直式步驟都經過自動驗證</li>
+          <li>直式計算逐格輸入、即時檢查；首頁文字附注音</li>
+          <li>付費內容放在家長驗證後面，符合兒童類 App 規範</li>
         </ul>
         <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">go_router</span><span class="tag">ObjectBox</span><span class="tag">audioplayers</span><span class="tag">In-App Purchase</span></div>
       </div>
@@ -493,7 +492,7 @@
 <p class="backend"><b>後端</b>Python 3.12 ＋ ffmpeg 轉檔 API，Docker Compose 部署（見上方「後端、系統與工具」）。</p>
                 <ul>
           <li>Clean Architecture：Entity / Repository / UseCase 分層，Riverpod 做依賴注入與跨頁狀態</li>
-          <li>iOS 背景播放、下載佇列（最多 3 個任務＋重試）、SQLite 資料同步</li>
+          <li>iOS 背景播放、下載佇列與自動重試、SQLite 資料同步</li>
           <li>播放清單拖曳排序、12 種主題配色、繁中 / 英文雙語</li>
           <li>Flutter test 51 項通過、analyze 0 issue</li>
         </ul>
@@ -541,10 +540,10 @@
         <div class="eyebrow">Flutter × Local-first × Google Drive <span class="badge blue">開發中</span></div>
         <h3>成長時光 Sprou Time</h3>
         <p>給家長的寶寶成長紀錄 App：日記、照片影片、身高體重曲線、里程碑與開銷，並可和家人同步。</p>
-<p class="backend"><b>同步</b>不架自有伺服器，以 Google Drive 當家庭同步層，處理版本號、刪除標記與多人衝突。</p>
+<p class="backend"><b>同步</b>不架自有伺服器，以 Google Drive 當家庭同步層，並處理多人同時編輯。</p>
                 <ul>
           <li>資料先存在手機（local-first），Google Drive 只做選用的家庭同步與備份，只要求最小的 drive.file 權限</li>
-          <li>照片影片用 SHA-256 去重後統一管理；同步支援版本號與刪除標記，避免家人之間互相覆蓋</li>
+          <li>照片影片自動去重；家人同步時避免互相覆蓋</li>
           <li>時光軸、成長曲線、開銷、影片編輯；4 種主題色並支援深色模式</li>
         </ul>
         <p class="note">畫面中的寶寶與紀錄皆為插畫示範資料。</p>
@@ -586,10 +585,10 @@
         <div class="eyebrow">Flutter × WebSocket × 區網探索 <span class="badge green">送審中</span></div>
         <h3>iVemo 智慧電視遙控器</h3>
         <p>在同一個 Wi-Fi 下，用手機遙控 Samsung、LG 智慧電視。</p>
-<p class="backend"><b>通訊</b>區網 SSDP／mDNS 探索、Samsung WebSocket 與 LG webOS 協定、TLS 憑證釘選。</p>
+<p class="backend"><b>通訊</b>區網自動搜尋電視，支援 Samsung 與 LG 的連線協定。</p>
                 <ul>
-          <li>用 SSDP 與 Bonjour 自動搜尋電視，支援 Wake-on-LAN 開機與記住上次連線</li>
-          <li>Samsung 走 WebSocket 配對、LG 走 webOS 協定並釘選 TLS 憑證；配對憑證存在 Secure Storage</li>
+          <li>自動搜尋電視、遠端開機、記住上次連線</li>
+          <li>配對資訊安全保存</li>
           <li>擬物風介面、定時關機倒數、App 捷徑管理</li>
         </ul>
         <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">WebSocket</span><span class="tag">SSDP / mDNS</span><span class="tag">Secure Storage</span></div>
@@ -678,10 +677,10 @@
         <div class="eyebrow">React 原型 → Flutter × 會員系統 <span class="badge gray">原型</span></div>
         <h3>BrewLog 精品咖啡會員 × 手沖紀錄 App</h3>
         <p>替自家烘豆品牌設計的會員 App：把只有結帳時才打開的集點卡，變成客人每天在家沖咖啡都會用的工具，幫店家提高回購。</p>
-<p class="backend"><b>商業邏輯</b>門市結帳後豆子自動入庫到客人手機；每記一杯自動扣克數，剩不到約兩杯時跳出「用點數折抵續購」。</p>
+<p class="backend"><b>商業邏輯</b>把買豆、沖煮與回購串成一個循環，讓店家掌握回購時機。</p>
         <ul>
-          <li>數位會員卡、十格豆印集點與點數兌換</li>
-          <li>每支豆的莊園溯源與五級風味雷達；烘豆師分段計時配方，改粉重自動換算各段水量</li>
+          <li>數位會員卡、集點與點數兌換</li>
+          <li>咖啡豆溯源、風味資訊與沖煮計時</li>
           <li>可切換的 App 圖示與主題，走極簡雜誌風的視覺設計</li>
         </ul>
         <p class="note">畫面為 React 互動原型截圖，店家、會員與商品皆為示範資料；Flutter 版依 Base 流程轉換中。</p>
@@ -701,12 +700,12 @@
       <div>
         <div class="eyebrow">Flutter × 農曆演算法 <span class="badge gray">原型</span></div>
         <h3>回甘</h3>
-        <p>給正在低潮、找工作的人的轉運 App：結合紫微、八字、易經，最後一定落到「今天做一件小事」的具體行動。</p>
-<p class="backend"><b>演算法</b>國曆、農曆（含閏月）換算與命盤計算，與原型逐筆比對結果。</p>
+        <p>給正在低潮、找工作的人的轉運 App：結合傳統命理，最後落到今天可以做的具體行動。</p>
+<p class="backend"><b>演算法</b>國曆、農曆換算與命盤計算，與原型逐筆比對結果。</p>
                 <ul>
-          <li>國曆、農曆（含閏月）換算與 React 原型同一套演算法，結果逐筆一致</li>
-          <li>紫微斗數、八字大運、流年流月、易經卜卦、今日吉方位</li>
-          <li>把建議接到實際行動，例如聯絡前同事、改履歷，並提供支持資源</li>
+          <li>曆法換算與原型結果逐筆一致</li>
+          <li>多種命理模組與每日建議</li>
+          <li>建議連結到實際行動，並提供支持資源</li>
         </ul>
         <p class="note">畫面為設計原型截圖。</p>
         <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">lunar</span><span class="tag">ObjectBox</span><span class="tag">go_router</span></div>
@@ -726,9 +725,9 @@
         <div class="eyebrow">Flutter × 會員權益規則 <span class="badge gray">原型</span></div>
         <h3>數位符籙 Digital Fulu</h3>
         <p>結合傳統文化的會員權益與收藏 App：每日簽到、畫符累積進度，收集不同等級的符籙，再把同級符籙合成升級，換取對應權益。</p>
-        <p class="backend"><b>規則引擎</b>等級價值、合成、到期轉點數等權益規則全部寫成程式並有測試，之後接後端只需換資料來源。</p>
+        <p class="backend"><b>規則引擎</b>權益規則全部寫成程式並有測試，之後接後端只需換資料來源。</p>
         <ul>
-          <li>Lv1～Lv5 價值為 100×2^(Lv−1)，同級兩張合成一張；Lv1～Lv4 三個月到期自動轉成點數，Lv5 永久保存</li>
+          <li>多等級收藏、合成升級與到期轉點等會員權益</li>
           <li>新會員註冊、示範帳號、每日簽到與連續畫符成就、邀請碼與邀請紀錄、個人資產頁</li>
           <li>React 原型與 Flutter 並排比對工具，搭配視覺 golden 測試確保畫面一致</li>
         </ul>
