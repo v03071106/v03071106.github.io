@@ -89,6 +89,17 @@
   .skills .tags { margin-top: 10px; }
   .skills .tag { background: var(--code); }
 
+  .radars { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .radar-card h3 { text-align: center; }
+  .radar-note { text-align: center; font-size: 13px !important; color: var(--faint) !important; margin-top: 4px !important; }
+  .radar svg { display: block; width: 100%; max-width: 420px; margin: 0 auto; overflow: visible; }
+  .radar .grid { fill: none; stroke: var(--line); }
+  .radar .axis { stroke: var(--line); }
+  .radar .area { fill: color-mix(in srgb, var(--accent) 22%, transparent); stroke: var(--accent); stroke-width: 2; }
+  .radar .dot { fill: var(--accent); }
+  .radar .lbl { fill: var(--muted); font-size: 13px; }
+  .radar .val { fill: var(--text); font-size: 12px; font-weight: 700; }
+
   footer { margin-top: 96px; padding: 56px 0; border-top: 1px solid var(--line); }
   footer h2 { margin-bottom: 10px; }
   footer p { color: var(--muted); margin: 0 0 20px; }
@@ -110,6 +121,7 @@
     <a class="brand" href="#">Vam</a>
     <ul>
       <li><a href="#about">關於我</a></li>
+      <li><a href="#radar">能力</a></li>
       <li><a href="#highlights">技術成果</a></li>
       <li><a href="#experience">經歷</a></li>
       <li><a href="#works">作品</a></li>
@@ -144,6 +156,22 @@
     <div class="stat"><b>10s → 1s</b><span>大量 Log 查詢優化</span></div>
     <div class="stat"><b>15 人</b><span>最高帶領團隊規模</span></div>
   </div>
+
+  <section id="radar">
+    <h2>能力雷達</h2>
+    <p class="sub">左邊是技能自評（滿分 10），右邊是 16 型人格簡易測驗結果。</p>
+    <div class="radars">
+      <div class="card radar-card">
+        <h3>技能</h3>
+        <div class="radar" id="skillRadar"></div>
+      </div>
+      <div class="card radar-card">
+        <h3>人格傾向：INFJ</h3>
+        <div class="radar" id="mbtiRadar"></div>
+        <p class="radar-note">相對的兩端加起來是 100%</p>
+      </div>
+    </div>
+  </section>
 
   <section id="highlights">
     <h2>精選技術成果</h2>
@@ -299,5 +327,58 @@
   </footer>
 </main>
 
+<script>
+  function drawRadar(el, data, max, unit = '') {
+    const n = data.length, size = 400, c = size / 2, r = 130, ns = 'http://www.w3.org/2000/svg';
+    const pt = (i, v) => {
+      const a = -Math.PI / 2 + i * 2 * Math.PI / n;
+      return [c + Math.cos(a) * r * v / max, c + Math.sin(a) * r * v / max];
+    };
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', data.map(d => `${d[0]} ${d[1]}`).join('、'));
+    const add = (tag, attrs, text) => {
+      const e = document.createElementNS(ns, tag);
+      for (const k in attrs) e.setAttribute(k, attrs[k]);
+      if (text != null) e.textContent = text;
+      svg.appendChild(e); return e;
+    };
+    for (let s = 1; s <= 5; s++)
+      add('polygon', { class: 'grid', points: data.map((_, i) => pt(i, max * s / 5).join(',')).join(' ') });
+    data.forEach((_, i) => { const [x, y] = pt(i, max); add('line', { class: 'axis', x1: c, y1: c, x2: x, y2: y }); });
+    add('polygon', { class: 'area', points: data.map((d, i) => pt(i, d[1]).join(',')).join(' ') });
+    data.forEach((d, i) => {
+      const [x, y] = pt(i, d[1]);
+      add('circle', { class: 'dot', cx: x, cy: y, r: 4 });
+      const [lx, ly] = pt(i, max * 1.2);
+      const anchor = Math.abs(lx - c) < 8 ? 'middle' : lx > c ? 'start' : 'end';
+      add('text', { class: 'lbl', x: lx, y: ly, 'text-anchor': anchor, 'dominant-baseline': 'middle' }, d[0]);
+      add('text', { class: 'val', x: lx, y: ly + 17, 'text-anchor': anchor, 'dominant-baseline': 'middle' }, d[1] + unit);
+    });
+    el.appendChild(svg);
+  }
+
+  drawRadar(document.getElementById('skillRadar'), [
+    ['PHP 後端', 9.5],
+    ['金流 / API 整合', 9.5],
+    ['資料庫優化', 9],
+    ['系統維運', 8],
+    ['團隊管理', 8],
+    ['Flutter', 7],
+    ['AI 輔助開發', 6.5],
+  ], 10);
+
+  drawRadar(document.getElementById('mbtiRadar'), [
+    ['內向 I', 70],
+    ['直覺 N', 75],
+    ['情感 F', 80],
+    ['判斷 J', 65],
+    ['外向 E', 30],
+    ['實感 S', 25],
+    ['思考 T', 20],
+    ['感知 P', 35],
+  ], 100, '%');
+</script>
 </body>
 </html>
