@@ -163,6 +163,20 @@
   .skills .card p { font-size: 14px; line-height: 1.7; }
   .skills .tag { background: var(--code); }
 
+  .tiers { display: grid; gap: 16px; }
+  .tier { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: start; }
+  .tier-head h3 { font-size: 20px; margin: 8px 0 4px; }
+  .tier-head p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.6; }
+  .tier-3 .tier-head h3 { color: var(--accent); }
+  .dots { display: inline-flex; gap: 5px; }
+  .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+  .dots i.on { background: var(--accent); }
+  .tier-body { display: grid; gap: 12px; }
+  .tier-row { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: start; }
+  .tier-label { font-size: 13px; font-weight: 600; color: var(--muted); padding-top: 4px; }
+  .tier .tag { background: var(--code); }
+  .tier-3 .tag { background: var(--accent-soft); }
+  @media (max-width: 700px) { .tier { grid-template-columns: 1fr; gap: 14px; } }
   .radars { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
   .radar-card h3 { text-align: center; }
   .radar-note { text-align: center; font-size: 13px !important; color: var(--faint) !important; margin-top: 4px !important; }
@@ -751,47 +765,32 @@
 
   <section id="skills">
     <h2>技能</h2>
-    <p class="sub">主力在 PHP 後端，也能自己切版、寫前端互動；個人專案用 AI 協作，延伸到 Flutter、Go、Python。</p>
-    <div class="skills">
-      <div class="card">
-        <h3>核心後端</h3>
-        <p>熟悉 Laravel 分層架構：Middleware、Form Request、Service / Repository、Model。用 AI 協作加速開發，並以多年實務經驗審查產出。</p>
-        <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">CodeIgniter</span><span class="tag">自研 MVC Framework</span><span class="tag">Composer</span></div>
+    <p class="sub">依熟悉程度分成三級：主力是 PHP 後端，也能自己做前端與 Flutter App；Go、Python 還在學習中。</p>
+    <div class="tiers">
+      <div class="card tier tier-3">
+        <div class="tier-head"><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><h3>主力</h3><p>14 年實務，可獨立負責、帶人</p></div>
+        <div class="tier-body">
+          <div class="tier-row"><span class="tier-label">後端</span><div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">CodeIgniter</span><span class="tag">自研 MVC Framework</span><span class="tag">Composer</span></div></div>
+          <div class="tier-row"><span class="tier-label">API</span><div class="tags"><span class="tag">RESTful API</span><span class="tag">Swagger / OpenAPI</span><span class="tag">30+ 家金流串接</span><span class="tag">Callback 驗簽</span><span class="tag">冪等與補單</span></div></div>
+          <div class="tier-row"><span class="tier-label">資料庫</span><div class="tags"><span class="tag">MySQL</span><span class="tag">MariaDB Master / Slave</span><span class="tag">Redis</span><span class="tag">SQL 優化</span><span class="tag">Index / Partition</span><span class="tag">Transaction / Deadlock</span></div></div>
+          <div class="tier-row"><span class="tier-label">維運</span><div class="tags"><span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">Docker Compose</span><span class="tag">GCP / AWS</span><span class="tag">日誌分析與排錯</span></div></div>
+        </div>
       </div>
-      <div class="card">
-        <h3>API 設計與串接</h3>
-        <p>RESTful API 設計與串接，串過 30 家以上金流與多家遊戲廠商 API；以 Swagger / OpenAPI 撰寫並維護 API 文件。</p>
-        <div class="tags"><span class="tag">RESTful API</span><span class="tag">Swagger / OpenAPI</span><span class="tag">Callback 驗簽</span><span class="tag">重複請求與冪等</span><span class="tag">逾時與補單</span></div>
+      <div class="card tier tier-2">
+        <div class="tier-head"><span class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><h3>熟悉</h3><p>能獨立開發</p></div>
+        <div class="tier-body">
+          <div class="tier-row"><span class="tier-label">App</span><div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span></div></div>
+          <div class="tier-row"><span class="tier-label">前端</span><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SASS / SCSS</span><span class="tag">Bootstrap 4 / 5</span><span class="tag">JavaScript</span><span class="tag">jQuery / Ajax</span><span class="tag">RWD</span></div></div>
+          <div class="tier-row"><span class="tier-label">工具</span><div class="tags"><span class="tag">Git</span><span class="tag">SVN</span><span class="tag">SourceTree</span><span class="tag">Redmine</span><span class="tag">Migration / Seeder</span><span class="tag">MongoDB</span><span class="tag">phpMyAdmin</span></div></div>
+          <div class="tier-row"><span class="tier-label">AI</span><div class="tags"><span class="tag">AI 輔助開發</span><span class="tag">Claude / ChatGPT / Codex</span></div></div>
+        </div>
       </div>
-      <div class="card">
-        <h3>資料庫</h3>
-        <p>熟悉原生 SQL 與查詢優化：Index、Partition、Transaction、Deadlock 排查。Migration / Seeder 與 Eloquent 基本使用。</p>
-        <div class="tags"><span class="tag">MySQL</span><span class="tag">MariaDB</span><span class="tag">Redis</span><span class="tag">原生 SQL</span><span class="tag">SQL 優化</span><span class="tag">Migration / Seeder</span><span class="tag">MongoDB</span><span class="tag">phpMyAdmin</span></div>
-      </div>
-      <div class="card">
-        <h3>DevOps / 正式環境</h3>
-        <p>用 Docker Compose 把 PHP 5.4 舊系統建成一鍵可用的開發環境；Linux 部署、日誌分析與正式環境分層排錯。</p>
-        <div class="tags"><span class="tag">Docker Compose</span><span class="tag">PHP 5.4 容器化</span><span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">GCP / AWS</span></div>
-      </div>
-      <div class="card">
-        <h3>前端與切版</h3>
-        <p>後台與活動頁可以自己完成前端：HTML / CSS 切版、SASS / SCSS、Bootstrap 4 / 5 RWD 版面，用 jQuery 處理表單、Ajax 與互動；也曾把手機版網頁封裝成 iOS / Android App。</p>
-        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SASS / SCSS</span><span class="tag">Bootstrap 4 / 5</span><span class="tag">JavaScript</span><span class="tag">jQuery / Ajax</span><span class="tag">RWD</span></div>
-      </div>
-      <div class="card">
-        <h3>跨平台與後端</h3>
-        <p>Flutter 自己寫過，熟悉 Riverpod 與分層架構，個人專案以 AI 協作快速迭代；Go、Python / FastAPI 後端以 AI 協作實作，由我負責架構、審查、測試與部署上架。</p>
-        <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">Go</span><span class="tag">Python / FastAPI</span><span class="tag">PostgreSQL</span></div>
-      </div>
-      <div class="card">
-        <h3>AI 輔助開發</h3>
-        <p>用 AI 協作做需求分析、開發、重構與除錯，再以後端與正式環境經驗驗證；做過 RAG、MCP 的技術驗證。</p>
-        <div class="tags"><span class="tag">Claude / ChatGPT / Codex</span><span class="tag">RAG・MCP POC</span><span class="tag">Ollama</span><span class="tag">Qdrant / Chroma</span></div>
-      </div>
-      <div class="card">
-        <h3>協作與工具</h3>
-        <p>用 Git / SVN 做版本控制，Redmine 規劃工作流程與工作日誌，並參與 Code Review 與教育訓練。</p>
-        <div class="tags"><span class="tag">Git</span><span class="tag">SVN</span><span class="tag">SourceTree</span><span class="tag">Redmine</span><span class="tag">VS Code</span><span class="tag">Sublime Text</span></div>
+      <div class="card tier tier-1">
+        <div class="tier-head"><span class="dots" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><h3>學習中</h3><p>做過實際專案，以 AI 協作實作，持續學習</p></div>
+        <div class="tier-body">
+          <div class="tier-row"><span class="tier-label">後端</span><div class="tags"><span class="tag">Go</span><span class="tag">Python / FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Laravel Eloquent ORM</span></div></div>
+          <div class="tier-row"><span class="tier-label">AI</span><div class="tags"><span class="tag">RAG</span><span class="tag">MCP</span><span class="tag">Ollama</span><span class="tag">Qdrant / Chroma</span></div></div>
+        </div>
       </div>
     </div>
   </section>
