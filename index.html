@@ -344,11 +344,12 @@
       <div class="lab-grid">
         <div class="card wide-card">
           <div class="card-phones"><img src="images/works/picpilot-1.jpg" alt="PicPilot 儀表板" loading="lazy"><img src="images/works/picpilot-2.jpg" alt="PicPilot 智慧匯入手機照片" loading="lazy"><img src="images/works/picpilot-3.jpg" alt="PicPilot 匯入明細" loading="lazy"><img src="images/works/picpilot-4.jpg" alt="PicPilot 重複群組" loading="lazy"><img src="images/works/picpilot-5.jpg" alt="PicPilot 操作計畫" loading="lazy"><img src="images/works/picpilot-6.jpg" alt="PicPilot 照片搜尋" loading="lazy"></div>
-          <div class="eyebrow">Python × FastAPI × PostgreSQL・AI 協作 <span class="badge green">已完成・使用中</span></div>
-          <h3>PicPilot NAS 照片整理</h3>
-          <p>替家裡 NAS 上數百萬張照片建立索引、找重複、整理成虛擬相簿，已開發完成並實際在用。Python worker 掃描 SMB 掛載資料夾，寫進 FastAPI ＋ PostgreSQL（Alembic 管理資料庫版本），用 Docker Compose 部署在 NAS 上，前端是 Flutter。安全優先：刪除前必須完整比對 hash，搬移類操作先在沙盒資料夾試跑。</p>
+          <div class="eyebrow">Flutter App × Python / FastAPI 後端・AI 協作 <span class="badge green">已完成・使用中</span></div>
+          <h3>PicPilot NAS 照片整理 App</h3>
+          <p>覺得 QNAP 內建的照片 App 不好用，所以自己做一套：手機上的 Flutter App 加上跑在 NAS 上的後端，替家裡數百萬張照片建立索引、找重複、整理成虛擬相簿，已開發完成並每天在用。</p>
+          <p><b>App 端</b>：Flutter ＋ Riverpod ＋ go_router，從手機相簿「智慧匯入」到 NAS（photo_manager 讀取相簿、上傳後可交給系統確認刪除手機原檔），並能搜尋照片、檢視重複群組、確認整理計畫。<br><b>後端</b>：Python worker 掃描 SMB 掛載資料夾，寫進 FastAPI ＋ PostgreSQL（Alembic 管理資料庫版本），用 Docker Compose 部署在 NAS 上。安全優先：刪除前必須完整比對 hash，搬移類操作先在沙盒資料夾試跑。</p>
           <p class="note-s">上方為手機版設計原型畫面，資料為示範內容；實際使用中的畫面含私人照片，不公開。</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Alembic</span><span class="tag">Docker Compose</span><span class="tag">Flutter</span></div>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">go_router</span><span class="tag">photo_manager</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Alembic</span><span class="tag">Docker Compose</span></div>
         </div>
         <div class="card">
           <div class="eyebrow">Claude Code Skill × Flutter × Python 工具 <span class="badge green">使用中</span></div>
