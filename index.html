@@ -405,6 +405,33 @@
       </div>
     </article>
 
+    <article class="work wide" id="apidebugger" data-title="API Debugger">
+      <div class="shot phones">
+        <img src="images/works/apidebug-1.jpg" alt="廠商管理" loading="lazy">
+        <img src="images/works/apidebug-2.jpg" alt="組裝請求" loading="lazy">
+        <img src="images/works/apidebug-3.jpg" alt="回應結果" loading="lazy">
+        <img src="images/works/apidebug-4.jpg" alt="設定與 Token 解析" loading="lazy">
+        <img src="images/works/apidebug-5.jpg" alt="桌面小工具" loading="lazy">
+        <img src="images/works/apidebug-6.jpg" alt="健康檢查小工具" loading="lazy">
+      </div>
+      <div>
+        <div class="eyebrow">Flutter × Riverpod × iOS 小工具 <span class="badge gray">自用</span></div>
+        <h3>API Debugger 手機 API 除錯工具</h3>
+        <p>串接第三方 API 時用的手機版除錯工具：依廠商與環境管理 API 範本，組好請求就能送出，看回應、查歷史紀錄。把我在金流與廠商串接上最常做的事，做成隨身帶著的 App。</p>
+<p class="backend"><b>串接</b>自動計算 SignKey 簽章、擷取 Session Token、每次請求帶上 X-Request-ID，可對照伺服器 Apache Log 追查同一筆請求。</p>
+        <ul>
+          <li>廠商 → API 範本 → 請求 → 回應的完整流程，可從 cURL、Postman Collection 匯入，並產生 PHP、Python、JavaScript 等請求範例</li>
+          <li>機密集中放在加密 Vault（Keychain / App Lock），不進小工具與匯出資料</li>
+          <li>iOS 桌面小工具顯示釘選 API 的上次檢測結果，可當成服務健康狀態看板</li>
+        </ul>
+        <p class="note">備註：畫面為 iPhone 模擬器實際操作截圖，連線對象為本機 Docker 測試服務與公開示範 API。</p>
+        <div class="tags">
+          <span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">flutter_secure_storage</span><span class="tag">home_widget</span>
+          <span class="tag">crypto 簽章</span><span class="tag">X-Request-ID</span><span class="tag">AI 協作開發</span>
+        </div>
+      </div>
+    </article>
+
     <article class="work wide" id="nidin" data-title="你訂 2.0">
       <div class="shot phones">
         <img src="images/nidin/01-home.webp" alt="你訂 首頁" loading="lazy">
@@ -635,6 +662,30 @@
         </ul>
         <p class="note">畫面為設計原型截圖，個案、醫師與病況皆為虛構示範資料。</p>
         <div class="tags"><span class="tag">Flutter</span><span class="tag">Riverpod</span><span class="tag">FHIR R4</span><span class="tag">ObjectBox</span><span class="tag">go_router</span></div>
+      </div>
+    </article>
+
+    <article class="work wide" id="brewlog" data-title="BrewLog 手沖咖啡">
+      <div class="shot phones">
+        <img src="images/works/brewlog-1.jpg" alt="今日沖煮" loading="lazy">
+        <img src="images/works/brewlog-2.jpg" alt="會員卡與集點" loading="lazy">
+        <img src="images/works/brewlog-3.jpg" alt="風味雷達與溯源" loading="lazy">
+        <img src="images/works/brewlog-4.jpg" alt="V60 分段計時" loading="lazy">
+        <img src="images/works/brewlog-5.jpg" alt="見底一鍵回購" loading="lazy">
+        <img src="images/works/brewlog-6.jpg" alt="點數兌換" loading="lazy">
+      </div>
+      <div>
+        <div class="eyebrow">React 原型 → Flutter × 會員系統 <span class="badge gray">原型</span></div>
+        <h3>BrewLog 精品咖啡會員 × 手沖紀錄 App</h3>
+        <p>替自家烘豆品牌設計的會員 App：把只有結帳時才打開的集點卡，變成客人每天在家沖咖啡都會用的工具，幫店家提高回購。</p>
+<p class="backend"><b>商業邏輯</b>門市結帳後豆子自動入庫到客人手機；每記一杯自動扣克數，剩不到約兩杯時跳出「用點數折抵續購」。</p>
+        <ul>
+          <li>數位會員卡、十格豆印集點與點數兌換</li>
+          <li>每支豆的莊園溯源與五級風味雷達；烘豆師分段計時配方，改粉重自動換算各段水量</li>
+          <li>可切換的 App 圖示與主題，走極簡雜誌風的視覺設計</li>
+        </ul>
+        <p class="note">畫面為 React 互動原型截圖，店家、會員與商品皆為示範資料；Flutter 版依 Base 流程轉換中。</p>
+        <div class="tags"><span class="tag">React 原型</span><span class="tag">Flutter</span><span class="tag">會員與集點</span><span class="tag">庫存扣減</span><span class="tag">AI 協作開發</span></div>
       </div>
     </article>
 
