@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vam｜資深 PHP 後端工程師</title>
-<meta name="description" content="Vam，14 年以上 PHP 後端開發經驗，專長金流與 API 整合、資料庫優化、系統維運，並持續發展 Flutter 與 AI 輔助開發。">
+<title>Vam｜後端工程師・能獨立做出完整 App</title>
+<meta name="description" content="Vam，14 年以上 PHP 後端開發經驗，專長金流與 API 整合、資料庫優化、系統維運；能用 Flutter 與自建後端獨立做出完整 App。">
 <link rel="icon" type="image/png" href="images/avatar.png">
 <link rel="apple-touch-icon" href="images/avatar.png">
 <script>
@@ -128,6 +128,12 @@
   :root[data-theme="dark"] .badge.blue { background: #1e3a8a; color: #93c5fd; }
   .work.extra { display: block; }
   .more-title { font-size: 20px !important; margin: 0 0 16px !important; }
+  .app-title { margin: 56px 0 8px !important; padding-top: 8px; }
+  .more-link { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 600; }
+  .lead2 { margin-top: 12px; color: var(--text); }
+  .work .backend { font-size: 14px; color: var(--text); background: var(--code); border-radius: 8px; padding: 10px 14px; }
+  .work .backend b { display: inline-block; margin-right: 8px; padding: 0 8px; border-radius: 4px; font-size: 12px;
+                     background: var(--accent); color: var(--bg); }
   .lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
   .lab-grid .card h3 { font-size: 18px; margin: 6px 0 8px; }
   .lab-grid .card p { margin-bottom: 14px; }
@@ -191,7 +197,7 @@
 
 <aside class="side">
   <a class="brand" href="#about"><img class="logo" src="images/avatar.png" alt="">Vam</a>
-  <p class="tagline">資深 PHP 後端<br>Flutter · AI 輔助開發</p>
+  <p class="tagline">後端工程師<br>能獨立做出完整 App</p>
   <nav aria-label="段落">
     <ul>
       <li><a href="#about"><span class="n">01</span>關於我</a></li>
@@ -218,11 +224,14 @@
   <div class="hero-row" id="about">
   <header class="hero">
     <img class="avatar" src="images/avatar.png" alt="Vam 的大頭照" width="96" height="96">
-    <div class="eyebrow">Backend Engineer · 台中</div>
-    <h1>嗨，我是 Vam。<br>寫了 14 年 PHP 後端。</h1>
+    <div class="eyebrow">Backend Engineer × Flutter · 台中</div>
+    <h1>嗨，我是 Vam。<br>14 年後端，<br>也能做出完整 App。</h1>
     <p class="lead">
       長期參與遊戲平台、會員、金流、活動、報表與後台系統開發，累積 30 家以上第三方支付串接經驗。
-      熟悉從需求分析、資料流程、API 整合、部署到正式環境問題排查；近年持續拓展 Flutter 與 AI 輔助開發。
+      熟悉從需求分析、資料流程、API 整合、部署到正式環境問題排查。
+    </p>
+    <p class="lead lead2">
+      工作之外，我用 Flutter 搭配自己架的後端服務（Go、Python、PHP），一個人從資料庫、API 做到 App 上架。
     </p>
     <div class="meta">
       <span>📍 台中市</span>
@@ -317,7 +326,41 @@
 
   <section id="works">
     <h2>作品</h2>
-    <p class="sub">近年用 Flutter 做的 App：有準備上架的產品、面試作品，也有從自己生活需求出發的專案。畫面可左右滑動。</p>
+    <p class="sub">工作上的 PHP 系統受保密約定無法公開，以下是我的個人作品：先是後端與系統，再來是搭配後端做出的 Flutter App。</p>
+
+    <article class="work extra" id="backend" data-title="後端與系統">
+      <h3 class="more-title">後端與系統</h3>
+      <div class="lab-grid">
+        <div class="card">
+          <div class="eyebrow">Python × FastAPI × PostgreSQL <span class="badge green">已完成・使用中</span></div>
+          <h3>PicPilot NAS 照片整理</h3>
+          <p>替家裡 NAS 上數百萬張照片建立索引、找重複、整理成虛擬相簿，已開發完成並實際在用。Python worker 掃描 SMB 掛載資料夾，寫進 FastAPI ＋ PostgreSQL（Alembic 管理資料庫版本），用 Docker Compose 部署在 NAS 上，前端是 Flutter。安全優先：刪除前必須完整比對 hash，搬移類操作先在沙盒資料夾試跑。</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Alembic</span><span class="tag">Docker Compose</span><span class="tag">Flutter</span></div>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Go × PostgreSQL × Docker <span class="badge blue">開發中</span></div>
+          <h3>iYield 股市資料服務</h3>
+          <p>iYield App 背後的資料服務。每天排程抓證交所、櫃買中心公開資料，回補近 5 年股利與財報，並處理減資、分割等換算。App 依資料版本號呼叫增量更新 API，只下載有變動的部分，離線也能用。</p>
+          <div class="tags"><span class="tag">Go</span><span class="tag">PostgreSQL</span><span class="tag">排程</span><span class="tag">增量同步 API</span><span class="tag">Docker</span></div>
+          <a class="more-link" href="#iyield">看 App 畫面 →</a>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Python × ffmpeg × Docker <span class="badge gray">自用</span></div>
+          <h3>TinTube 音訊轉檔服務</h3>
+          <p>TinTube App 的下載核心。Python 3.12 HTTP 服務負責來源解析、用 ffmpeg 轉成 m4a 並回傳檔案，另提供試聽用的短期串流網址；以 Docker Compose 部署、自動重啟。</p>
+          <div class="tags"><span class="tag">Python 3.12</span><span class="tag">ffmpeg</span><span class="tag">REST API</span><span class="tag">Docker Compose</span></div>
+          <a class="more-link" href="#tintube">看 App 畫面 →</a>
+        </div>
+        <div class="card">
+          <div class="eyebrow">PHP 5.4 × Docker Compose <span class="badge gray">工作經驗</span></div>
+          <h3>PHP 5.4 舊系統 Docker 化</h3>
+          <p>把公司跑在 PHP 5.4 上的舊系統開發環境容器化：整合 PHP、Apache、MariaDB Master／Slave、Redis、Swagger、Crontab 與 Logrotate，一個指令就能建好，供 15 位以上工程師使用，大幅降低環境差異與新人建置成本。</p>
+          <div class="tags"><span class="tag">PHP 5.4</span><span class="tag">Docker Compose</span><span class="tag">MariaDB 主從</span><span class="tag">Redis</span><span class="tag">Swagger</span></div>
+        </div>
+      </div>
+    </article>
+
+    <h3 class="more-title app-title">Flutter App</h3>
 
     <article class="work wide" id="nidin" data-title="你訂 2.0">
       <div class="shot phones">
@@ -332,9 +375,9 @@
         <div class="eyebrow">Flutter × Riverpod × Clean Architecture <span class="badge">面試作品</span></div>
         <h3>你訂 2.0 點餐與團購 App</h3>
         <p>把點餐、揪團與會員收進同一支 App：找附近店家、看菜單、結帳、追蹤取餐，加上同棟揪團、簽到、你幣與會員卡。重點是把互動原型變成可驗證的規格，並把載入、錯誤與語系都做成正式狀態。</p>
-        <ul>
+<p class="backend"><b>資料層</b>Mock API 模擬 1～2 秒延遲、逾時、斷線與伺服器錯誤；Repository 介面先定好，接真實 API 時畫面不必改。</p>
+                <ul>
           <li>Feature-first 分層（Presentation / Domain / Data），接真實後端時只換 repository，畫面不必重寫</li>
-          <li>Mock API 模擬 1～2 秒延遲、8 秒逾時、斷線與伺服器錯誤，骨架屏、重試與錯誤畫面都實際驗過</li>
           <li>四個主分頁各自保留導航狀態；繁中 / 英 / 日 / 韓四語系，連 mock 資料也跟著語系回應</li>
           <li>Apple 地圖找店與找團、本機通知追蹤訂單、主題色 × 深淺色切換</li>
           <li>916 項測試通過、<code>dart analyze --fatal-infos</code> 0 問題；與 React 原型版面相似度 98% 以上</li>
@@ -360,7 +403,8 @@
         <div class="eyebrow">Flutter × 題庫引擎 × App 內購買 <span class="badge green">準備上架</span></div>
         <h3>算算探險隊 兒童數學冒險 App</h3>
         <p>繪本風的國小四則運算闖關 App：孩子在 20 個主題世界裡練直式加減乘除，一邊收集勳章。已備妥 App Store 截圖、上架文案與內購設定，準備送審販售。</p>
-        <ul>
+<p class="backend"><b>題目引擎</b>確定性產生 24,000 題，JavaScript 與 Dart 兩套實作用 golden 測試逐題對齊；不需伺服器、離線可玩。</p>
+                <ul>
           <li>確定性題目引擎產生 24,000 題（20 個世界 × 四則運算 × 30 關 × 10 題），全部答案與直式步驟都經過自動驗證</li>
           <li>題目引擎從 JavaScript 移植成純 Dart，用 golden 測試確認兩邊結果完全一致</li>
           <li>直式計算可逐格輸入，進位、部分積、商與餘數即時檢查；首頁文字附注音</li>
@@ -376,7 +420,8 @@
         <div class="eyebrow">Flutter × Python × Docker</div>
         <h3>TinTube 離線音樂播放器</h3>
         <p>從搜尋、試聽、下載到離線播放的完整 App。Flutter 前端搭配 Docker 化的 Python 服務，負責音訊解析與轉檔。</p>
-        <ul>
+<p class="backend"><b>後端</b>Python 3.12 ＋ ffmpeg 轉檔 API，Docker Compose 部署（見上方「後端與系統」）。</p>
+                <ul>
           <li>Clean Architecture：Entity / Repository / UseCase 分層，Riverpod 做依賴注入與跨頁狀態</li>
           <li>iOS 背景播放、下載佇列（最多 3 個任務＋重試）、SQLite 資料同步</li>
           <li>播放清單拖曳排序、12 種主題配色、繁中 / 英文雙語</li>
@@ -402,7 +447,8 @@
         <div class="eyebrow">Flutter × Go × PostgreSQL <span class="badge blue">開發中</span></div>
         <h3>iYield 存股殖利率</h3>
         <p>給台股存股族的殖利率與股利追蹤 App：管理持股、估算每年可領股利、篩選高殖利率個股。前後端都自己寫。</p>
-        <ul>
+<p class="backend"><b>後端</b>Go ＋ PostgreSQL 資料服務，每日排程抓公開資料，提供增量更新 API（見上方「後端與系統」）。</p>
+                <ul>
           <li>自寫 Go ＋ PostgreSQL 後端，每天抓證交所、櫃買中心公開資料，並回補近 5 年股利與財報</li>
           <li>App 內建市場資料、離線可用；之後依版本號只下載有變動的部分（增量更新 API）</li>
           <li>處理減資、分割等換算；篩選器、買賣規則訊號、股利日曆、個股比較、試算</li>
@@ -425,7 +471,8 @@
         <div class="eyebrow">Flutter × Local-first × Google Drive <span class="badge blue">開發中</span></div>
         <h3>成長時光 Sprou Time</h3>
         <p>給家長的寶寶成長紀錄 App：日記、照片影片、身高體重曲線、里程碑與開銷，並可和家人同步。</p>
-        <ul>
+<p class="backend"><b>同步</b>不架自有伺服器，以 Google Drive 當家庭同步層，處理版本號、刪除標記與多人衝突。</p>
+                <ul>
           <li>資料先存在手機（local-first），Google Drive 只做選用的家庭同步與備份，只要求最小的 drive.file 權限</li>
           <li>照片影片用 SHA-256 去重後統一管理；同步支援版本號與刪除標記，避免家人之間互相覆蓋</li>
           <li>時光軸、成長曲線、開銷、影片編輯；4 種主題色並支援深色模式</li>
@@ -446,7 +493,8 @@
         <div class="eyebrow">Flutter × CloudKit × Swift <span class="badge green">準備上架</span></div>
         <h3>iStash 家庭庫存管理</h3>
         <p>居家物品管理 App：記錄物品放在哪、何時到期、何時要補貨，家人可以一起維護。</p>
-        <ul>
+<p class="backend"><b>同步</b>用 Swift 原生串接 CloudKit Sharing，免架後端就能家庭共享。</p>
+                <ul>
           <li>三層位置樹、到期提醒、低庫存本地通知、歷史價格圖表與統計</li>
           <li>透過 Swift MethodChannel 串接 CloudKit Sharing，不架後端就能家庭共享，並附同步診斷頁</li>
           <li>內建 241 枚原創圖示；介面支援四種語言；已通過 iOS 封存打包檢查</li>
@@ -468,7 +516,8 @@
         <div class="eyebrow">Flutter × WebSocket × 區網探索 <span class="badge green">送審中</span></div>
         <h3>iVemo 智慧電視遙控器</h3>
         <p>在同一個 Wi-Fi 下，用手機遙控 Samsung、LG 智慧電視。</p>
-        <ul>
+<p class="backend"><b>通訊</b>區網 SSDP／mDNS 探索、Samsung WebSocket 與 LG webOS 協定、TLS 憑證釘選。</p>
+                <ul>
           <li>用 SSDP 與 Bonjour 自動搜尋電視，支援 Wake-on-LAN 開機與記住上次連線</li>
           <li>Samsung 走 WebSocket 配對、LG 走 webOS 協定並釘選 TLS 憑證；配對憑證存在 Secure Storage</li>
           <li>擬物風介面、定時關機倒數、App 捷徑管理</li>
@@ -490,7 +539,8 @@
         <div class="eyebrow">Flutter × Stellar 區塊鏈 × NFC <span class="badge blue">開發中</span></div>
         <h3>Stellare Wallet 冷錢包（v1 → v2）</h3>
         <p>Stellar 區塊鏈錢包，v2（ReStellara）改成冷錢包架構：私鑰可加密存在 NFC 卡片，付款時讀卡簽章。</p>
-        <ul>
+<p class="backend"><b>鏈上</b>串接 Stellar Horizon API，處理交易組裝、簽章與送出，測試網端對端驗證入帳。</p>
+                <ul>
           <li>私鑰加密存在 Keychain，搭配 PIN、生物辨識、自動鎖定與防截圖；PIN 以 PBKDF2 雜湊、NFC 載荷用 AES-GCM 加密</li>
           <li>付款、DEX 掛單、K 線、路徑支付（path payment）；多錢包與四語系</li>
           <li>端對端整合測試在測試網上實際完成付款並確認入帳，也驗證錯誤 PIN 不會送出交易</li>
@@ -511,7 +561,8 @@
         <div class="eyebrow">Flutter × NAS × PHP <span class="badge gray">自用</span></div>
         <h3>小孩 MP3 播放器</h3>
         <p>源自家裡的需求：讓孩子在車上或房間聽喜歡的音樂和有聲書。家長在 NAS 整理內容，App 同步到手機播放。</p>
-        <ul>
+<p class="backend"><b>後端</b>NAS 上自寫的 PHP API，提供播放清單 JSON 與音檔、封面下載。</p>
+                <ul>
           <li>NAS 上的 PHP 提供播放清單 JSON，App 用 Dio 下載後本地播放</li>
           <li>audio_service 整合系統媒體控制與背景播放</li>
           <li>分類、跨清單搜尋、我的最愛、深淺色主題</li>
@@ -533,7 +584,8 @@
         <div class="eyebrow">Flutter × FHIR R4 <span class="badge gray">原型</span></div>
         <h3>居家醫療與長照服務 App</h3>
         <p>給居家護理與長照人員的訪視工作 App：今日行程、個案、生命徵象、傷口紀錄、視訊看診。</p>
-        <ul>
+<p class="backend"><b>資料層</b>依台灣長照規格設計 FHIR R4 本機資料層，離線時把異動排進佇列，連線後同步。</p>
+                <ul>
           <li>React 原型的 36 個路由全部轉成 Flutter，342 個互動都有對應測試</li>
           <li>依台灣長照與 TW Core 規格設計 FHIR R4 本機資料層</li>
           <li>離線排隊同步；生命徵象、傷口、ADL 量表、透析等訪視流程</li>
@@ -556,7 +608,8 @@
         <div class="eyebrow">Flutter × 農曆演算法 <span class="badge gray">原型</span></div>
         <h3>回甘</h3>
         <p>給正在低潮、找工作的人的轉運 App：結合紫微、八字、易經，最後一定落到「今天做一件小事」的具體行動。</p>
-        <ul>
+<p class="backend"><b>演算法</b>國曆、農曆（含閏月）換算與命盤計算，與原型逐筆比對結果。</p>
+                <ul>
           <li>國曆、農曆（含閏月）換算與 React 原型同一套演算法，結果逐筆一致</li>
           <li>紫微斗數、八字大運、流年流月、易經卜卦、今日吉方位</li>
           <li>把建議接到實際行動，例如聯絡前同事、改履歷，並提供支持資源</li>
@@ -566,17 +619,6 @@
       </div>
     </article>
 
-    <article class="work extra" id="lab" data-title="自架工具">
-      <h3 class="more-title">自架工具</h3>
-      <div class="lab-grid">
-        <div class="card">
-          <div class="eyebrow">Flutter × Python × FastAPI <span class="badge green">已完成・使用中</span></div>
-          <h3>PicPilot NAS 照片整理</h3>
-          <p>替家裡 NAS 上數百萬張照片建立索引、找重複、整理成虛擬相簿，已開發完成並實際在用。Python worker 掃描 SMB 掛載資料夾，寫進 FastAPI ＋ PostgreSQL（Alembic 管理資料庫版本），用 Docker Compose 部署在 NAS 上。安全優先：刪除前必須完整比對 hash，搬移類操作先在沙盒資料夾試跑。</p>
-          <div class="tags"><span class="tag">Flutter</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Alembic</span><span class="tag">Docker</span></div>
-        </div>
-      </div>
-    </article>
   </section>
 
   <section id="skills">
